@@ -5,10 +5,12 @@ import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
-@RequestMapping("api/v1/student")
+@RequestMapping("api/student")
 @RestController
 public class StudentController {
     private final StudentService studentService;
@@ -19,7 +21,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public void addStudent(@RequestBody Student student) {
+    public void addStudent(@Valid @NotNull @RequestBody Student student) {
         studentService.addStudent(student);
     }
 
@@ -40,7 +42,7 @@ public class StudentController {
     }
 
     @PutMapping(path = "{id}")
-    public void updateStudentById(@PathVariable("id") UUID id, @RequestBody Student studentToUpdate) {
+    public void updateStudentById(@PathVariable("id") UUID id, @Valid @NotNull @RequestBody Student studentToUpdate) {
         studentService.updateStudent(id, studentToUpdate);
     }
 }

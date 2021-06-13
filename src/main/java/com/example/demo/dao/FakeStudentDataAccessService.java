@@ -15,7 +15,7 @@ public class FakeStudentDataAccessService implements StudentDao{
 
     @Override
     public int insertStudent(UUID id, Student student) {
-        DB.add(new Student(id, student.getName(), student.getSurname()));
+        DB.add(new Student(id, student.getName(), student.getSurname(), student.getAge(), student.getAgeGroup()));
         return 1;
     }
 
@@ -51,8 +51,9 @@ public class FakeStudentDataAccessService implements StudentDao{
                                 new Student(
                                         id,
                                         studentUpdate.getName(),
-                                        studentUpdate.getSurname()
-                                )
+                                        studentUpdate.getSurname(),
+                                        studentUpdate.getAge(),
+                                        studentUpdate.getAgeGroup())
                         );
                         return 1;
                     }

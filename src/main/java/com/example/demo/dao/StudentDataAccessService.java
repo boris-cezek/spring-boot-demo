@@ -18,7 +18,7 @@ public class StudentDataAccessService implements StudentDao{
     @Override
     public List<Student> selectAllStudents() {
         List<Student> tempStudent = new ArrayList<Student>();
-        tempStudent.add(new Student(UUID.randomUUID(), "Testing", "Injection"));
+        tempStudent.add(new Student(UUID.randomUUID(), "Testing", "Injection", 0, ""));
         return tempStudent;
     }
 
